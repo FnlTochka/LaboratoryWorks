@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace LaboratoryWorks
+namespace Lab3
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

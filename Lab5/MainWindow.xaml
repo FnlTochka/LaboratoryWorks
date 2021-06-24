@@ -1,0 +1,54 @@
+﻿<Window x:Class="Lab5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab5"
+        mc:Ignorable="d"
+        Title="Lab5"
+        
+        MinHeight="460"
+        MinWidth="800"
+        
+        Height="460"
+        Width="800"
+        
+        MaxHeight="460"
+        MaxWidth="800"
+        >
+    <Grid>
+        <Canvas Margin="595,10,83.6,295.4">
+            <Button Content="Нарисовать" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="75" 
+                Click="btnClickPaint" Canvas.Left="20" Canvas.Top="10"
+                />
+            <Button Content="Стереть" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="75" 
+                Click="btnClickClear"
+                Canvas.Top="86" Canvas.Left="20"
+                />
+        </Canvas>
+        <GroupBox Header="Начало" HorizontalAlignment="Left" Height="130" Margin="535,145,0,0" VerticalAlignment="Top" Width="230">
+            <Canvas HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
+                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="19" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="X" Canvas.Top="20"/>
+                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="57" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Y" Canvas.Top="58"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox Header="Конец" HorizontalAlignment="Left" Height="130" Margin="535,280,0,0" VerticalAlignment="Top" Width="230">
+            <Canvas HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
+                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="19" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="X" Canvas.Top="20"/>
+                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="57" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Y" Canvas.Top="58"/>
+            </Canvas>
+        </GroupBox>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
+
+    </Grid>
+</Window>
