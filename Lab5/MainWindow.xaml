@@ -32,23 +32,24 @@
                 Canvas.Top="86" Canvas.Left="20"
                 />
         </Canvas>
-        <GroupBox Header="Начало" HorizontalAlignment="Left" Height="130" Margin="535,145,0,0" VerticalAlignment="Top" Width="230">
+        <GroupBox Header="Задайте координаты" HorizontalAlignment="Left" Height="130" Margin="535,145,0,0" VerticalAlignment="Top" Width="230">
             <Canvas HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
-                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="19" Width="120"/>
-                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="X" Canvas.Top="20"/>
-                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="57" Width="120"/>
-                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Y" Canvas.Top="58"/>
+                <TextBox x:Name="userInputX" Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="1" Canvas.Top="19" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="20"><Run Text="X:"/></TextBlock>
+                <TextBox x:Name="userInputR" Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="2" Canvas.Top="57" Width="120"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="58"><Run Text="R:"/></TextBlock>
             </Canvas>
         </GroupBox>
-        <GroupBox Header="Конец" HorizontalAlignment="Left" Height="130" Margin="535,280,0,0" VerticalAlignment="Top" Width="230">
+        <GroupBox Header="Результат" HorizontalAlignment="Left" Height="130" Margin="535,280,0,0" VerticalAlignment="Top" Width="230">
             <Canvas HorizontalAlignment="Left" Height="90" Margin="10,10,0,0" VerticalAlignment="Top" Width="200">
-                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="19" Width="120"/>
-                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="X" Canvas.Top="20"/>
-                <TextBox Height="20" Canvas.Left="49" TextWrapping="Wrap" Text="50" Canvas.Top="57" Width="120"/>
-                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Y" Canvas.Top="58"/>
+                <TextBox x:Name="userResultStr" Height="20" Canvas.Left="49" TextWrapping="Wrap" Canvas.Top="19" Width="120" IsReadOnlyCaretVisible="True"/>
+                <TextBlock Canvas.Left="-4" TextWrapping="Wrap" Canvas.Top="20"><Run Text="Функция:"/></TextBlock>
+                <TextBox x:Name="userResultY" Height="20" Canvas.Left="49" TextWrapping="Wrap" Canvas.Top="57" Width="120" IsReadOnlyCaretVisible="True"/>
+                <TextBlock Canvas.Left="10" TextWrapping="Wrap" Text="Y=" Canvas.Top="58"/>
             </Canvas>
         </GroupBox>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="510"/>
-
+        <Canvas x:Name="ResultCanvas" Margin="10,10,273.6,20.4">
+        </Canvas>
     </Grid>
 </Window>

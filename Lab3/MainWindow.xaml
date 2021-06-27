@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab3"
         mc:Ignorable="d"
-        Title="Lab3" Height="450" Width="800">
+        Title="Lab3" Height="300" Width="500">
     <Grid>
-        
+        <GroupBox Header="Расчёт площади сектора круга" HorizontalAlignment="Left" Height="225" Margin="25,25,0,0" VerticalAlignment="Top" Width="450">
+            <Canvas HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="410">
+                <CheckBox x:Name="checkSectorAngle" Content="угол сектора - θ" Canvas.Left="15" Canvas.Top="15" Checked="CheckSectorAngle_Checked"/>
+                <CheckBox x:Name="checkArcLength" Content="длина дуги - L" Canvas.Left="150" Canvas.Top="15" Checked="CheckArcLength_Checked"/>
+                <Button Content="Вычислить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="10" Canvas.Top="151" Click="btnClickСalculate"/>
+                <TextBox x:Name="userResultStr" Height="20" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="150" Width="145" IsReadOnlyCaretVisible="True"/>
+                <TextBlock Canvas.Left="129" TextWrapping="Wrap" Canvas.Top="151"><Run Text="Результат"/><Run Text=":"/></TextBlock>
+                <ComboBox x:Name="resultList" Height="22" VerticalAlignment="Top" Canvas.Left="344" Canvas.Top="148" SelectedIndex="0">
+                    <ComboBoxItem Content="кв.мм"/>
+                    <ComboBoxItem Content="кв.см"/>
+                    <ComboBoxItem Content="кв.м"/>
+                    <ComboBoxItem Content="кв.км"/>
+                    <ComboBoxItem Content="кв.фут"/>
+                    <ComboBoxItem Content="кв.ярд"/>
+                    <ComboBoxItem Content="кв.дюйм"/>
+                    <ComboBoxItem Content="кв.миля"/>
+                </ComboBox>
+                <Canvas x:Name="canvasCheck" Height="108" Canvas.Top="35" Width="364">
+                    <TextBox x:Name="userInputR" Height="20" Canvas.Left="39" TextWrapping="Wrap" Canvas.Top="17" Width="120"/>
+                    <TextBlock Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="17" Text="r:"/>
+                    <TextBox x:Name="userInputN" Height="20" Canvas.Left="39" TextWrapping="Wrap" Canvas.Top="54" Width="120"/>
+                    <TextBlock x:Name="txt_InputN" Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="54" Text="θ:"/>
+                    <Image x:Name="img1" Height="100" Width="100" Canvas.Left="254" Source="Img/area_sector1.png"/>
+                    <Image x:Name="img2" Height="100" Width="100" Canvas.Left="254" Source="Img/area_sector2.png" Visibility="Hidden"/>
+                    <ComboBox x:Name="rList" Height="22" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="14" SelectedIndex="0">
+                        <ComboBoxItem Content="мм"/>
+                        <ComboBoxItem Content="см"/>
+                        <ComboBoxItem Content="м"/>
+                        <ComboBoxItem Content="км"/>
+                        <ComboBoxItem Content="фут"/>
+                        <ComboBoxItem Content="ярд"/>
+                        <ComboBoxItem Content="дюйм"/>
+                        <ComboBoxItem Content="миля"/>
+                    </ComboBox>
+                    <ComboBox x:Name="nList" Height="22" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="54" SelectedIndex="0">
+                        <ComboBoxItem Content="град."/>
+                        <ComboBoxItem Content="рад."/>
+                    </ComboBox>
+                </Canvas>
+            </Canvas>
+        </GroupBox>
+
     </Grid>
 </Window>
