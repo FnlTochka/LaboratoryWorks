@@ -11,27 +11,20 @@
             <Canvas HorizontalAlignment="Left" Height="180" Margin="10,10,0,0" VerticalAlignment="Top" Width="410">
                 <CheckBox x:Name="checkSectorAngle" Content="угол сектора - θ" Canvas.Left="15" Canvas.Top="15" Checked="CheckSectorAngle_Checked"/>
                 <CheckBox x:Name="checkArcLength" Content="длина дуги - L" Canvas.Left="150" Canvas.Top="15" Checked="CheckArcLength_Checked"/>
-                <Button Content="Вычислить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="10" Canvas.Top="151" Click="btnClickСalculate"/>
+                <Button Content="Вычислить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="10" Canvas.Top="151" Click="BtnClickСalculate"/>
                 <TextBox x:Name="userResultStr" Height="20" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="150" Width="145" IsReadOnlyCaretVisible="True"/>
                 <TextBlock Canvas.Left="129" TextWrapping="Wrap" Canvas.Top="151"><Run Text="Результат"/><Run Text=":"/></TextBlock>
-                <ComboBox x:Name="resultList" Height="22" VerticalAlignment="Top" Canvas.Left="344" Canvas.Top="148" SelectedIndex="0">
-                    <ComboBoxItem Content="кв.мм"/>
-                    <ComboBoxItem Content="кв.см"/>
-                    <ComboBoxItem Content="кв.м"/>
-                    <ComboBoxItem Content="кв.км"/>
-                    <ComboBoxItem Content="кв.фут"/>
-                    <ComboBoxItem Content="кв.ярд"/>
-                    <ComboBoxItem Content="кв.дюйм"/>
-                    <ComboBoxItem Content="кв.миля"/>
+                <ComboBox x:Name="resultList" Height="22" VerticalAlignment="Top" Canvas.Left="344" Canvas.Top="148" SelectedIndex="0" IsEnabled="False">
+                    <ComboBoxItem Content="кв.м" IsEnabled="False"/>
                 </ComboBox>
-                <Canvas x:Name="canvasCheck" Height="108" Canvas.Top="35" Width="364">
+                <Canvas Height="108" Canvas.Top="35" Width="364">
                     <TextBox x:Name="userInputR" Height="20" Canvas.Left="39" TextWrapping="Wrap" Canvas.Top="17" Width="120"/>
                     <TextBlock Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="17" Text="r:"/>
                     <TextBox x:Name="userInputN" Height="20" Canvas.Left="39" TextWrapping="Wrap" Canvas.Top="54" Width="120"/>
                     <TextBlock x:Name="txt_InputN" Canvas.Left="25" TextWrapping="Wrap" Canvas.Top="54" Text="θ:"/>
                     <Image x:Name="img1" Height="100" Width="100" Canvas.Left="254" Source="Img/area_sector1.png"/>
                     <Image x:Name="img2" Height="100" Width="100" Canvas.Left="254" Source="Img/area_sector2.png" Visibility="Hidden"/>
-                    <ComboBox x:Name="rList" Height="22" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="14" SelectedIndex="0">
+                    <ComboBox x:Name="rList" Height="22" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="14" SelectedIndex="2">
                         <ComboBoxItem Content="мм"/>
                         <ComboBoxItem Content="см"/>
                         <ComboBoxItem Content="м"/>

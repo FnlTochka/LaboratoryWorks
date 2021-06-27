@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Lab3
 {
@@ -10,7 +8,7 @@ namespace Lab3
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool checkVar = true;
+        private bool checkVar = true;
 
         public MainWindow()
         {
@@ -18,77 +16,74 @@ namespace Lab3
             ChangeCheck(true);
         }
 
-        private void btnClickСalculate(object sender, RoutedEventArgs e)
+        private void BtnClickСalculate(object sender, RoutedEventArgs e)
         {
             try
             {
+                double _r = Convert.ToDouble(userInputR.Text), _n = Convert.ToDouble(userInputN.Text);
+
+                double _rSelected;
+                switch (rList.SelectedIndex)
+                {
+                    case 0:
+                        _rSelected = 0.001;
+                        break;
+                    case 1:
+                        _rSelected = 0.01;
+                        break;
+                    case 2:
+                        _rSelected = 1;
+                        break;
+                    case 3:
+                        _rSelected = 1000;
+                        break;
+                    case 4:
+                        _rSelected = 0.3048;
+                        break;
+                    case 5:
+                        _rSelected = 0.9144;
+                        break;
+                    case 6:
+                        _rSelected = 0.0254;
+                        break;
+                    case 7:
+                        _rSelected = 1609.344;
+                        break;
+                    default:
+                        _rSelected = 1;
+                        break;
+                }
+
                 switch (checkVar)
                 {
                     case true:
-                        double _r = Convert.ToDouble(userInputR.Text), _n = Convert.ToDouble(userInputN.Text);
-
-                        double qwe2;
-                        switch (rList.SelectedIndex)
-                        {
-                            case 0:
-                                qwe2 = 1;
-                                break;
-                            case 1:
-                                qwe2 = 0.01;
-                                break;
-                            case 2:
-                                qwe2 = 1;
-                                break;
-                            case 3:
-                                qwe2 = 1000;
-                                break;
-                            case 4:
-                                qwe2 = 0.3048;
-                                break;
-                            case 5:
-                                qwe2 = 0.9144;
-                                break;
-                            case 6:
-                                qwe2 = 0.0254;
-                                break;
-                            case 7:
-                                qwe2 = 1609.344;
-                                break;
-                            default:
-                                qwe2 = 0.001;
-                                break;
-                        }
-
-                        double qwe;
+                        double _nSelected;
                         switch (nList.SelectedIndex)
                         {
                             case 0:
-                                qwe = Math.PI / 180.0;
+                                _nSelected = Math.PI / 180.0;
                                 break;
                             case 1:
-                                qwe = 1;
+                                _nSelected = 1;
                                 break;
                             default:
-                                qwe = Math.PI / 180.0;
+                                _nSelected = Math.PI / 180.0;
                                 break;
                         }
 
-                        double qaaa = qwe * 0.5;
+                        double _final_nSelected = _nSelected * 0.5;
 
-                        double _result = qaaa * qwe2 * Math.Pow(_r, 2.0) * _n;
-                        //double v = _result * 100.0;
+                        double _result = _final_nSelected * _rSelected * Math.Pow(_r, 2.0) * _n;
 
-                        //result = Math.Pow(_r, 2.0) / 2.0 * (_n - Math.Sin(_n));
                         userResultStr.Text = Convert.ToString(_result);
                         break;
                     case false:
-
+                        double _result2 = _n * _r / 2;
+                        userResultStr.Text = Convert.ToString(_result2);
                         break;
                     default:
                         break;
                 }
-
-
             }
             catch
             {
@@ -97,15 +92,20 @@ namespace Lab3
             }
         }
 
+        /// <summary>
+        /// Смена расчета
+        /// </summary>
+        /// <param name="isEnable"></param>
         private void ChangeCheck(bool isEnable)
         {
             switch (isEnable)
             {
                 case true:
                     checkVar = true;
-                    //canvasCheck.Visibility = Visibility.Visible;
                     img1.Visibility = Visibility.Visible;
                     img2.Visibility = Visibility.Hidden;
+                    rList.Visibility = Visibility.Visible;
+                    nList.Visibility = Visibility.Visible;
                     txt_InputN.Text = "θ:";
                     userResultStr.Text = Convert.ToString("");
                     checkArcLength.IsChecked = false;
@@ -115,9 +115,10 @@ namespace Lab3
                     break;
                 case false:
                     checkVar = false;
-                    //canvasCheck.Visibility = Visibility.Hidden;
                     img1.Visibility = Visibility.Hidden;
                     img2.Visibility = Visibility.Visible;
+                    rList.Visibility = Visibility.Hidden;
+                    nList.Visibility = Visibility.Hidden;
                     txt_InputN.Text = "L:";
                     userResultStr.Text = Convert.ToString("");
                     checkArcLength.IsChecked = true;

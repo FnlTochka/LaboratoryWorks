@@ -27,7 +27,7 @@ namespace Lab5
             else if ((_x < -R) && (_x >= -5))
             {
                 y = _x + R;
-                function = "y = x + " + Convert.ToString(R); ;
+                function = "y = x + " + Convert.ToString(R);
             }
             else if ((-R <= _x) && (_x <= 0))
             {
@@ -53,10 +53,8 @@ namespace Lab5
             myLine = new Line
             {
                 Stroke = System.Windows.Media.Brushes.Black,
-                X1 = 1,
-                X2 = 50,
-                Y1 = 1,
-                Y2 = 50,
+                X1 = _x*50,
+                Y1 = y*50,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 StrokeThickness = 2
