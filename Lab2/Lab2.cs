@@ -43,7 +43,7 @@ namespace Lab2
             public bool Distinct { get; set; }
 
             /// <summary>
-            /// Проверить, будут ли все буквы введенной строки различными
+            /// Конструктор - проверить, будут ли все буквы введенной строки различными
             /// </summary>
             /// <param name="val"></param>
             public Integers(long val)

@@ -74,11 +74,11 @@ namespace Lab1
         /// </summary>
         public class Circle
         {
-            public double Radius { get; set; }
-            public Point Center { get; set; }
+            private double Radius { get; set; }
+            private Point Center { get; set; }
 
             /// <summary>
-            /// Окружность
+            /// Конструктор окружности
             /// </summary>
             public Circle(double radius, Point center)
             {
@@ -87,7 +87,7 @@ namespace Lab1
             }
 
             /// <summary>
-            /// Площадь
+            /// Площадь окружности
             /// </summary>
             public double CircleArea => Math.PI * Radius * Radius;
 

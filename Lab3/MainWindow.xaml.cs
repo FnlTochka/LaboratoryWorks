@@ -9,6 +9,8 @@ namespace Lab3
     public partial class MainWindow : Window
     {
         private bool checkVar = true;
+        ConverterDataBase DataConvert = new ConverterDataBase();
+        ConverterDataBase2 DataConvert2 = new ConverterDataBase2();
 
         public MainWindow()
         {
@@ -22,64 +24,13 @@ namespace Lab3
             {
                 double _r = Convert.ToDouble(userInputR.Text), _n = Convert.ToDouble(userInputN.Text);
 
-                double _rSelected;
-                switch (rList.SelectedIndex)
-                {
-                    case 0:
-                        _rSelected = 0.001;
-                        break;
-                    case 1:
-                        _rSelected = 0.01;
-                        break;
-                    case 2:
-                        _rSelected = 1;
-                        break;
-                    case 3:
-                        _rSelected = 1000;
-                        break;
-                    case 4:
-                        _rSelected = 0.3048;
-                        break;
-                    case 5:
-                        _rSelected = 0.9144;
-                        break;
-                    case 6:
-                        _rSelected = 0.0254;
-                        break;
-                    case 7:
-                        _rSelected = 1609.344;
-                        break;
-                    default:
-                        _rSelected = 1;
-                        break;
-                }
-
                 switch (checkVar)
                 {
                     case true:
-                        double _nSelected;
-                        switch (nList.SelectedIndex)
-                        {
-                            case 0:
-                                _nSelected = Math.PI / 180.0;
-                                break;
-                            case 1:
-                                _nSelected = 1;
-                                break;
-                            default:
-                                _nSelected = Math.PI / 180.0;
-                                break;
-                        }
-
-                        double _final_nSelected = _nSelected * 0.5;
-
-                        double _result = _final_nSelected * _rSelected * Math.Pow(_r, 2.0) * _n;
-
-                        userResultStr.Text = Convert.ToString(_result);
+                        userResultStr.Text = $"{CountResultSectorAngle(_r, rList.SelectedIndex, _n, nList.SelectedIndex)}";
                         break;
                     case false:
-                        double _result2 = _n * _r / 2;
-                        userResultStr.Text = Convert.ToString(_result2);
+                        userResultStr.Text = $"{CountResultArcLength(_r, _n)}";
                         break;
                     default:
                         break;
@@ -90,6 +41,19 @@ namespace Lab3
                 userResultStr.Text = Convert.ToString("Некорректный ввод");
                 MessageBox.Show("Поля, соответствующие значению радиуса, углу или длине сектора, должны быть заполнены!");
             }
+        }
+
+        private double CountResultSectorAngle(double num, int fromType, double num2, int toType)
+        {
+            double _final_nSelected = DataConvert2.fromMetresTo[toType] * 0.5;
+            double res = _final_nSelected * DataConvert.fromMetresTo[fromType] * Math.Pow(num, 2.0) * num2;
+            return res;
+        }
+
+        private double CountResultArcLength(double num, double num2)
+        {
+            double res = num2 * num / 2;
+            return res;
         }
 
         /// <summary>
